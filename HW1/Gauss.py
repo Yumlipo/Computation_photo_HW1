@@ -77,8 +77,8 @@ def convolve_2d(image, kernel, border_type):
     pad_w = kernel_w // 2
 
     # Pad the image to handle borders
-    # padded_image = np.pad(image, ((pad_h, pad_h), (pad_w, pad_w)), mode=border_type)
-    padded_image = cv2.copyMakeBorder(image, pad_h, pad_h, pad_w, pad_w, border_type, value=0)
+    padded_image = np.pad(image, ((pad_h, pad_h), (pad_w, pad_w)), mode=border_type)
+    # padded_image = cv2.copyMakeBorder(image, pad_h, pad_h, pad_w, pad_w, border_type, value=0)
 
     # padded_image = cv2.copyMakeBorder(image, pad_h, pad_h, pad_w, pad_w, border_type, None, value=0)
 
@@ -102,8 +102,8 @@ def convolve_1d(signal, kernel, border_type):
     pad_size = kernel_len // 2
 
     # Pad the signal with zeros
-    # padded_image = np.pad(signal, (pad_size, pad_size), mode=border_type)
-    padded_image = cv2.copyMakeBorder(image, pad_size, pad_size, pad_size, pad_size, border_type, value=0)
+    padded_image = np.pad(signal, (pad_size, pad_size), mode=border_type)
+    # padded_image = cv2.copyMakeBorder(image, pad_size, pad_size, pad_size, pad_size, border_type, value=0)
     # Initialize result array
     result = np.zeros(signal_len)
 
@@ -155,7 +155,7 @@ image_np = np.array(image)
 kernel_sigma_value = 5
 kernel_size = 10
 
-border_type=cv2.BORDER_CONSTANT
+border_type='reflect'
 # cv2.BORDER_CONSTANT
 # cv2.BORDER_REPLICATE
 # cv2.BORDER_REFLECT
